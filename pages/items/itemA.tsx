@@ -1,16 +1,17 @@
 import Link from 'next/link'
 import Head from 'next/head'
+import Image from 'next/image'
 import Layout from '../../components/layout'
 
-export default function itemA() {
+export default function ItemA() {
     return (
     <Layout>
       <Head>
         <title>Item A</title>
       </Head>
+        <Image src="/images/itemA.jpg" alt="Item A" className="itemImage" width={400} height={400} />
         <h1>Item A</h1>
         <p>Item A is awesome!</p>
-        <Link href="/">Back to top</Link>
     </Layout>
         )
   }
