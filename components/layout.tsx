@@ -35,16 +35,18 @@ const siteTitle: string = "Sample EC Website";
  * @type {function}
  * @default
  */
-const LayoutHeader = ({ home }: { boolean }): JSX.Element => (
+const LayoutHeader = (): JSX.Element => (
   <header className={styles.header}>
     <Link href="/">
-      <Image
-        src="/images/logoEC.png"
-        className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-        width={50}
-        height={50}
-        alt={siteTitle}
-      />
+      <a>
+        <Image
+          src="/images/logoEC.png"
+          className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
+          width={50}
+          height={50}
+          alt={siteTitle}
+        />
+      </a>
     </Link>
     <Link href="/">
       <h1 className={utilStyles.heading2Xl}>
@@ -54,7 +56,7 @@ const LayoutHeader = ({ home }: { boolean }): JSX.Element => (
   </header>
 );
 
-const BackToHome = ({ home }: { boolean }): JSX.Element => (
+const BackToHome = ({ home }: { home?: boolean }): JSX.Element => (
   <>
     {!home && (
       <div className={styles.backToHome}>
@@ -76,7 +78,7 @@ export default function Layout({
   return (
     <div className={styles.container}>
       <LayoutHead />
-      <LayoutHeader home={home} />
+      <LayoutHeader />
       <main>{children}</main>
       <BackToHome home={home} />
     </div>
