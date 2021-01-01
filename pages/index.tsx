@@ -2,9 +2,11 @@ import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import Layout from "../components/layout";
+import { getSortedPostsData } from "../lib/posts";
+import utilStyles from "../styles/utils.module.css";
 
 /**
- * Return a date in a ISO date format
+ * Get a date in a ISO date format
  * @constant
  * @type {String}
  * @default
@@ -17,7 +19,29 @@ const today: String = (() => {
   return yyyy + "-" + mm + "-" + dd;
 })();
 
-export default function Home() {
+const ArticleList = ({
+  allPostsData,
+}: {
+  allPostsData: { date: string; title: string; id: string };
+}): JSX.Element => (
+  /* Add this <section> tag below the existing <section> tag */
+  <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+    <h2 className={utilStyles.headingLg}>Articles</h2>
+    <ul className={utilStyles.list}>
+      {allPostsData.map(({ id, date, title }) => (
+        <li className={utilStyles.listItem} key={id}>
+          {title}
+          <br />
+          {id}
+          <br />
+          {date}
+        </li>
+      ))}
+    </ul>
+  </section>
+);
+
+export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>
@@ -52,6 +76,7 @@ export default function Home() {
           </Link>
         </li>
       </ul>
+      <ArticleList allPostsData={allPostsData} />
       <h2>Articles</h2>
       <ul>
         <li>
@@ -73,4 +98,20 @@ export default function Home() {
       </ul>
     </Layout>
   );
+}
+
+/**
+ * Return an external data fetched upon build
+ * @function
+ * @type
+ * @default
+ */
+export async function getStaticProps(): GetStaticProps {
+  const allPostsData = getSortedPostsData();
+  console.log(allPostsData);
+  return {
+    props: {
+      allPostsData,
+    },
+  };
 }
