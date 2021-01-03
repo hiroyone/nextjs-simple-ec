@@ -2,6 +2,12 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+/**
+ * Get content meta data by a file name from a directory
+ * @function
+ * @param {string} fileName - File Name
+ * @param {string} postsDirectory - Directory to find the file
+ */
 function getPostsMetaData(
   fileName: string,
   postsDirectory: string
@@ -27,6 +33,11 @@ function getPostsMetaData(
   };
 }
 
+/**
+ * Get all files in sorted order in a given folder
+ * @function
+ * @param {string} folder - Folder from which to find and get all stored files
+ */
 export default function getSortedPostsData(
   folder: string
 ): { date: string; title: string; id: string }[] {
