@@ -1,54 +1,46 @@
-import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import Layout from "../components/layout";
-import { getSortedPostsData } from "../lib/posts";
-import utilStyles from "../styles/utils.module.css";
+import getSortedPostsData from "../lib/sortedPostsData";
+import { GetStaticProps } from "next";
+import ItemList from "../components/itemList";
+import ArticleList from "../components/articleList";
+import CleanDate from "../components/cleanDate";
 
 /**
  * Get a date in a ISO date format
  * @constant
- * @type {String}
+ * @type {string}
  * @default
  */
-const today: String = (() => {
-  const todayDate: Date = new Date();
-  const dd: String = `${todayDate.getDate()}`.padStart(2, "0");
-  const mm: String = `${todayDate.getMonth() + 1}`.padStart(2, "0"); //January is 0!
-  const yyyy: String = String(todayDate.getFullYear());
-  return yyyy + "-" + mm + "-" + dd;
-})();
+const todayDate: string = new Date().toISOString();
 
-const ArticleList = ({
-  allPostsData,
+export default function Home({
+  allArticlesData,
+  allItemsData,
 }: {
-  allPostsData: { date: string; title: string; id: string };
-}): JSX.Element => (
-  /* Add this <section> tag below the existing <section> tag */
-  <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-    <h2 className={utilStyles.headingLg}>Articles</h2>
-    <ul className={utilStyles.list}>
-      {allPostsData.map(({ id, date, title }) => (
-        <li className={utilStyles.listItem} key={id}>
-          {title}
-          <br />
-          {id}
-          <br />
-          {date}
-        </li>
-      ))}
-    </ul>
-  </section>
-);
-
-export default function Home({ allPostsData }) {
+  allArticlesData: {
+    date: string;
+    title: string;
+    id: string;
+  }[];
+  allItemsData: {
+    date: string;
+    title: string;
+    id: string;
+    price: number;
+    category: string;
+  }[];
+}) {
   return (
     <Layout home>
       <Head>
         <title>Sample EC | Top</title>
       </Head>
       {/* Counter */}
-      <p>Welcome! Today is {today}</p>
+      <p>
+        Welcome! Today is <CleanDate dateString={todayDate} />
+      </p>
       <Image
         src="/images/ecommerce.jpg"
         alt="Item A"
@@ -57,45 +49,8 @@ export default function Home({ allPostsData }) {
         height={400}
       />
 
-      <h2>Items</h2>
-      <ul>
-        <li>
-          <Link href="/items/itemA">
-            <a>
-              <Image
-                src="/images/itemA.jpg"
-                alt="Item A"
-                className="itemImage"
-                width={100}
-                height={100}
-              />
-            </a>
-          </Link>
-          <Link href="/items/itemA">
-            <a>Item A</a>
-          </Link>
-        </li>
-      </ul>
-      <ArticleList allPostsData={allPostsData} />
-      <h2>Articles</h2>
-      <ul>
-        <li>
-          <Link href="/articles/article1">
-            <a>
-              <Image
-                src="/images/article1.jpg"
-                alt="Article 1"
-                className="articleImage"
-                width={100}
-                height={100}
-              />
-            </a>
-          </Link>
-          <Link href="/articles/article1">
-            <a>Article 1</a>
-          </Link>
-        </li>
-      </ul>
+      <ItemList allItemsData={allItemsData} />
+      <ArticleList allArticlesData={allArticlesData} />
     </Layout>
   );
 }
@@ -103,15 +58,22 @@ export default function Home({ allPostsData }) {
 /**
  * Return an external data fetched upon build
  * @function
- * @type
+ * @type {function}
  * @default
  */
-export async function getStaticProps(): GetStaticProps {
-  const allPostsData = getSortedPostsData();
-  console.log(allPostsData);
+export const getStaticProps: GetStaticProps = async () => {
+  // Article Data
+  const allArticlesData = getSortedPostsData("articles");
+  console.log(allArticlesData);
+
+  // Item Data
+  const allItemsData = getSortedPostsData("items");
+  console.log(allItemsData);
+
   return {
     props: {
-      allPostsData,
+      allArticlesData,
+      allItemsData,
     },
   };
-}
+};
