@@ -37,7 +37,7 @@ export default function ImageModal({
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        contentLabel="Example Modal"
+        contentLabel="Modal"
         className={utilStyles.modal}
         overlayClassName={utilStyles.overlay}
       >
@@ -49,7 +49,9 @@ export default function ImageModal({
             width={600}
             height={400}
           />
-          <figcaption>Image: {mainImage}</figcaption>
+          <figcaption className={utilStyles.headingMd}>
+            Image: {mainImage}
+          </figcaption>
           <button className={utilStyles.button} onClick={closeModal}>
             close
           </button>
