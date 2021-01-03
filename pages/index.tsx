@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import Layout from "../components/layout";
 import getSortedPostsData from "../lib/sortedPostsData";
 import { GetStaticProps } from "next";
@@ -7,6 +6,8 @@ import ItemList from "../components/itemList";
 import ArticleList from "../components/articleList";
 import CleanDate from "../components/cleanDate";
 import { articleMetaData, itemMetaData } from "../types/interfaces";
+import React from "react";
+import ImageModal from "../components/imageModal";
 
 /**
  * Get a date in a ISO date format
@@ -15,6 +16,7 @@ import { articleMetaData, itemMetaData } from "../types/interfaces";
  * @default
  */
 const todayDate: string = new Date().toISOString();
+const mainImage = "ecommerce";
 
 export default function Home({
   allArticlesData,
@@ -22,24 +24,16 @@ export default function Home({
 }: {
   allArticlesData: articleMetaData[];
   allItemsData: itemMetaData[];
-}) {
+}): JSX.Element {
   return (
     <Layout home>
       <Head>
         <title>Sample EC | Top</title>
       </Head>
-      {/* Counter */}
       <p>
         Welcome! Today is <CleanDate dateString={todayDate} />
       </p>
-      <Image
-        src="/images/ecommerce.jpg"
-        alt="Item A"
-        className="itemImage"
-        width={600}
-        height={400}
-      />
-
+      <ImageModal mainImage={mainImage} />
       <ItemList allItemsData={allItemsData} />
       <ArticleList allArticlesData={allArticlesData} />
     </Layout>

@@ -5,24 +5,22 @@ import getPostData from "../../lib/postData";
 import { GetStaticProps, GetStaticPaths } from "next";
 import CleanDate from "../../components/cleanDate";
 import utilStyles from "../../styles/utils.module.css";
-import Image from "next/image";
 import { itemData } from "../../types/interfaces";
+import ImageModal from "../../components/imageModal";
 
 const folder = "items";
 
-export default function Items({ itemData }: { itemData: itemData }) {
+export default function Items({
+  itemData,
+}: {
+  itemData: itemData;
+}): JSX.Element {
   return (
     <Layout>
       <Head>
         <title>Sample EC | {itemData.title}</title>
       </Head>
-      <Image
-        src={`/images/${itemData.id}.jpg`}
-        alt={itemData.title}
-        className="itemImage"
-        width={400}
-        height={400}
-      />
+      <ImageModal mainImage={itemData.id} />
       <article>
         <h1 className={utilStyles.headingXl}>{itemData.title}</h1>
         <small className={utilStyles.lightText}>

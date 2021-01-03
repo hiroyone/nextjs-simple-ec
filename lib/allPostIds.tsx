@@ -1,6 +1,11 @@
 import fs from "fs";
 import path from "path";
 
+/**
+ * Get all content IDs from a directory
+ * @function
+ * @param {string} folder - Directory to find the file
+ */
 export default function getAllPostIds(
   folder: string
 ): { params: { id: string } }[] {
