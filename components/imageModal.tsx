@@ -3,6 +3,11 @@ import Image from "next/image";
 import React from "react";
 import Modal from "react-modal";
 
+/**
+ * Return an image with a modal feature
+ * @function
+ * @param {string} mainImage - Image Name
+ */
 export default function ImageModal({
   mainImage,
 }: {
