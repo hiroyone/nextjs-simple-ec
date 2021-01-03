@@ -2,17 +2,12 @@ import utilStyles from "../styles/utils.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import CleanDate from "./cleanDate";
+import { itemMetaData } from "../types/interfaces";
 
 export default function ItemList({
   allItemsData,
 }: {
-  allItemsData: {
-    date: string;
-    title: string;
-    id: string;
-    price: number;
-    category: string;
-  }[];
+  allItemsData: itemMetaData[];
 }): JSX.Element {
   return (
     /* Add this <section> tag below the existing <section> tag */

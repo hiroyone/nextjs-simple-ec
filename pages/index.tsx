@@ -6,6 +6,7 @@ import { GetStaticProps } from "next";
 import ItemList from "../components/itemList";
 import ArticleList from "../components/articleList";
 import CleanDate from "../components/cleanDate";
+import { articleMetaData, itemMetaData } from "../types/interfaces";
 
 /**
  * Get a date in a ISO date format
@@ -19,18 +20,8 @@ export default function Home({
   allArticlesData,
   allItemsData,
 }: {
-  allArticlesData: {
-    date: string;
-    title: string;
-    id: string;
-  }[];
-  allItemsData: {
-    date: string;
-    title: string;
-    id: string;
-    price: number;
-    category: string;
-  }[];
+  allArticlesData: articleMetaData[];
+  allItemsData: itemMetaData[];
 }) {
   return (
     <Layout home>
@@ -64,11 +55,9 @@ export default function Home({
 export const getStaticProps: GetStaticProps = async () => {
   // Article Data
   const allArticlesData = getSortedPostsData("articles");
-  console.log(allArticlesData);
 
   // Item Data
   const allItemsData = getSortedPostsData("items");
-  console.log(allItemsData);
 
   return {
     props: {

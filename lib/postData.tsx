@@ -3,11 +3,18 @@ import path from "path";
 import matter from "gray-matter";
 import remark from "remark";
 import html from "remark-html";
+import { articleData, itemData } from "../types/interfaces";
 
+/**
+ * Get content data by a file name from a directory
+ * @function
+ * @param {string} id - File id
+ * @param {string} folder - Directory to find the file
+ */
 export default async function getPostData(
   id: string,
   folder: string
-): Promise<{ date: string; title: string; id: string; contentHtml: string }> {
+): Promise<itemData | articleData> {
   const postsDirectory = path.join(process.cwd(), folder);
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");

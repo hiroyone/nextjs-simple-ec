@@ -6,19 +6,11 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import CleanDate from "../../components/cleanDate";
 import utilStyles from "../../styles/utils.module.css";
 import Image from "next/image";
+import { articleData } from "../../types/interfaces";
 
 const folder = "articles";
 
-export default function Article({
-  articleData,
-}: {
-  articleData: {
-    id: string;
-    title: string;
-    date: string;
-    contentHtml: string;
-  };
-}) {
+export default function Article({ articleData }: { articleData: articleData }) {
   return (
     <Layout>
       <Head>

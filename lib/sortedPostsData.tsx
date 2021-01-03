@@ -1,6 +1,12 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import {
+  articleData,
+  itemData,
+  articleMetaData,
+  itemMetaData,
+} from "../types/interfaces";
 
 /**
  * Get content meta data by a file name from a directory
@@ -11,11 +17,7 @@ import matter from "gray-matter";
 function getPostsMetaData(
   fileName: string,
   postsDirectory: string
-): {
-  date: string;
-  title: string;
-  id: string;
-} {
+): articleMetaData | itemMetaData {
   // Remove ".md" from file name to get id
   const id = fileName.replace(/\.md$/, "");
 
@@ -40,7 +42,7 @@ function getPostsMetaData(
  */
 export default function getSortedPostsData(
   folder: string
-): { date: string; title: string; id: string }[] {
+): articleMetaData[] | itemMetaData[] {
   const postsDirectory = path.join(process.cwd(), folder);
 
   // Get file names under /posts

@@ -2,15 +2,12 @@ import utilStyles from "../styles/utils.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import CleanDate from "./cleanDate";
+import { articleMetaData } from "../types/interfaces";
 
 export default function ArticleList({
   allArticlesData,
 }: {
-  allArticlesData: {
-    date: string;
-    title: string;
-    id: string;
-  }[];
+  allArticlesData: articleMetaData[];
 }): JSX.Element {
   return (
     /* Add this <section> tag below the existing <section> tag */
