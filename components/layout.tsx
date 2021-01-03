@@ -76,7 +76,7 @@ export default function Layout({
   home?: boolean;
 }) {
   return (
-    <div className={styles.container}>
+    <div id="root" className={styles.container}>
       <LayoutHead />
       <LayoutHeader />
       <main>{children}</main>

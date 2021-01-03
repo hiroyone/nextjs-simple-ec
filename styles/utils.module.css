@@ -54,3 +54,48 @@
 .lightText {
   color: #999;
 }
+
+.clickableImage {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.clickableImage:hover {
+  opacity: 0.6;
+}
+
+.modal {
+  padding: 3% 2% 0% 2%;
+  background-color: white;
+  margin: 2% auto;
+  display: block;
+  width: 800px;
+  max-width: 100%;
+}
+
+.overlay {
+  position: fixed; /* Stay in place */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+}
+
+.button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  margin: 1rem 0rem;
+  width: 20%;
+  min-width: 5rem;
+  height: 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 4px;
+}
