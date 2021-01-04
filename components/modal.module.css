@@ -20,9 +20,6 @@
 }
 
 .modalCloseButton {
-  position: absolute;
-  right: 10%;
-  bottom: 5%;
   background-color: transparent;
   opacity: 1; /* Pure Transparent */
   border: 0.1px solid black;
@@ -31,6 +28,18 @@
   text-align: center;
   font-size: 1rem;
   border-radius: 3px;
+}
+
+.modalBottomRight {
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+}
+
+.modalBottomLeft {
+  position: absolute;
+  left: 10%;
+  bottom: 5%;
 }
 
 .modalCloseButton:hover {

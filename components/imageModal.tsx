@@ -48,10 +48,15 @@ export default function ImageModal({
             alt="Top Image"
             layout="fill"
           />
-          <figcaption className={utilStyles.headingMd}>
+          <figcaption
+            className={`${utilStyles.headingMd} ${modalStyles.modalBottomLeft}`}
+          >
             Image: {mainImage}
           </figcaption>
-          <button className={modalStyles.modalCloseButton} onClick={closeModal}>
+          <button
+            className={`${modalStyles.modalCloseButton} ${modalStyles.modalBottomRight}`}
+            onClick={closeModal}
+          >
             close
           </button>
         </figure>
