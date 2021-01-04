@@ -41,7 +41,7 @@ const LayoutHeader = (): JSX.Element => (
       <a>
         <Image
           src="/images/logoEC.png"
-          className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
+          className={`${styles.headerHomeImage}`}
           width={50}
           height={50}
           alt={siteTitle}
@@ -49,9 +49,9 @@ const LayoutHeader = (): JSX.Element => (
       </a>
     </Link>
     <Link href="/">
-      <h1 className={utilStyles.heading2Xl}>
-        <a className={utilStyles.colorInherit}>{siteTitle}</a>
-      </h1>
+      <a className={utilStyles.colorInherit}>
+        <h1 className={utilStyles.heading2Xl}>{siteTitle}</h1>
+      </a>
     </Link>
   </header>
 );
