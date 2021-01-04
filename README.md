@@ -6,6 +6,7 @@ This project is currently <b>under development</b>.
 
 ## Goals and Features
 
+- Image Optimization (next/image)
 - Component Driven
 - Headless CMS
 - Google Tag Manager & Google Analytics integrated
