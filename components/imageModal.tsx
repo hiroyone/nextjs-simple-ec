@@ -1,4 +1,5 @@
 import utilStyles from "../styles/utils.module.css";
+import modalStyles from "./modal.module.css";
 import Image from "next/image";
 import React from "react";
 import Modal from "react-modal";
@@ -39,7 +40,7 @@ export default function ImageModal({
         onRequestClose={closeModal}
         contentLabel="Modal"
         className={utilStyles.modal}
-        overlayClassName={utilStyles.overlay}
+        overlayClassName={modalStyles.overlay}
       >
         <figure>
           <Image
@@ -50,7 +51,7 @@ export default function ImageModal({
           <figcaption className={utilStyles.headingMd}>
             Image: {mainImage}
           </figcaption>
-          <button className={utilStyles.button} onClick={closeModal}>
+          <button className={modalStyles.modalCloseButton} onClick={closeModal}>
             close
           </button>
         </figure>

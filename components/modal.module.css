@@ -1,0 +1,38 @@
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed; /* Stay in place */
+  left: 0px; /* Shadow horizontal position */
+  top: 0px; /* Shadow vertical position */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+}
+
+.modal {
+  background-color: white;
+  position: relative;
+  display: block;
+  padding-top: 40%; /* width:height = 9:4 */
+  flex-basis: 90%;
+}
+
+.modalCloseButton {
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+  background-color: transparent;
+  opacity: 1; /* Pure Transparent */
+  border: 0.1px solid black;
+  width: 4rem;
+  height: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 3px;
+}
+
+.modalCloseButton:hover {
+  opacity: 0.6;
+}
