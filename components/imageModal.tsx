@@ -39,7 +39,7 @@ export default function ImageModal({
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Modal"
-        className={utilStyles.modal}
+        className={modalStyles.modal}
         overlayClassName={modalStyles.overlay}
       >
         <figure>
