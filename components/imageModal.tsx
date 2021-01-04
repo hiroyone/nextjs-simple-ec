@@ -45,9 +45,7 @@ export default function ImageModal({
           <Image
             src={`/images/${mainImage}.jpg`}
             alt="Top Image"
-            className={utilStyles.modalImage}
-            width={600}
-            height={400}
+            layout="fill"
           />
           <figcaption className={utilStyles.headingMd}>
             Image: {mainImage}
