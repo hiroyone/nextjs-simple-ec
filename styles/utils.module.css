@@ -55,6 +55,10 @@
   color: #999;
 }
 
+.colorWhiteSmoke {
+  color: whitesmoke;
+}
+
 .clickableImage {
   transition: 0.3s;
   cursor: pointer;

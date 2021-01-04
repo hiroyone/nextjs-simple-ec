@@ -15,33 +15,31 @@
   background-color: white;
   position: relative;
   display: block;
-  padding-top: 40%; /* width:height = 9:4 */
+  padding-top: 60%; /* width:height = 9:4 */
   flex-basis: 90%;
 }
 
 .modalCloseButton {
   background-color: transparent;
-  opacity: 1; /* Pure Transparent */
-  border: 0.1px solid black;
-  width: 4rem;
-  height: 2rem;
+  border: none;
   text-align: center;
-  font-size: 1rem;
-  border-radius: 3px;
-}
-
-.modalBottomRight {
-  position: absolute;
-  right: 10%;
-  bottom: 5%;
-}
-
-.modalBottomLeft {
-  position: absolute;
-  left: 10%;
-  bottom: 5%;
+  color: whitesmoke;
+  font-size: 3rem;
 }
 
 .modalCloseButton:hover {
   opacity: 0.6;
+  cursor: pointer;
+}
+
+.modalAboveRight {
+  position: absolute;
+  right: 5%;
+  top: -20%;
+}
+
+.modalBottomLeft {
+  position: absolute;
+  left: 5%;
+  bottom: -20%;
 }
