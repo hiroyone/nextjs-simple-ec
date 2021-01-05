@@ -42,7 +42,7 @@ function getPostsMetaData(
  */
 export default function getSortedPostsData(
   folder: string
-): articleMetaData[] | itemMetaData[] {
+): (articleMetaData | itemMetaData)[] {
   const postsDirectory = path.join(process.cwd(), folder);
 
   // Get file names under /posts
@@ -52,7 +52,7 @@ export default function getSortedPostsData(
   );
 
   // Sort posts by date
-  return allPostsData.sort((a, b) => {
+  return allPostsData.sort((a, b): number => {
     if (a.date > b.date) {
       return 1;
     } else {
