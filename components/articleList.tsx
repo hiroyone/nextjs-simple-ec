@@ -14,13 +14,13 @@ export default function ArticleList({
     <section className={`${utilStyles.headingSm} ${utilStyles.padding1px}`}>
       <h2 className={utilStyles.headingLg}>Articles</h2>
       <ul className={utilStyles.list}>
-        {allArticlesData.map(({ id, date, title }) => (
-          <li className={utilStyles.listItem} key={id}>
-            <Link href={`/articles/${id}`}>
+        {allArticlesData.map((article) => (
+          <li className={utilStyles.listItem} key={article.id}>
+            <Link href={`/articles/${article.id}`}>
               <a>
                 <Image
-                  src={`/images/${id}.jpg`}
-                  alt={title}
+                  src={`/images/${article.id}.jpg`}
+                  alt={article.title}
                   className="articleImage"
                   width={100}
                   height={100}
@@ -28,12 +28,12 @@ export default function ArticleList({
               </a>
             </Link>
             <br />
-            <Link href={`/articles/${id}`}>
-              <a>{title}</a>
+            <Link href={`/articles/${article.id}`}>
+              <a>{article.title}</a>
             </Link>
             <br />
             <small className={utilStyles.lightText}>
-              <CleanDate dateString={date} />
+              <CleanDate dateString={article.date} />
             </small>
           </li>
         ))}

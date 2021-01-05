@@ -1,7 +1,7 @@
 ---
-title: "Item A"
+name: "Item A"
 date: "2021-01-01"
-price: 500
+price: 3300
 category: "Game"
 ---
 

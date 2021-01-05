@@ -7,7 +7,7 @@ export interface articleMetaData {
 export interface itemMetaData {
   id: string;
   date: string;
-  title: string;
+  name: string;
   price: number;
   category: string;
 }

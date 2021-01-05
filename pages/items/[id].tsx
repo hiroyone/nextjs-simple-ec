@@ -18,11 +18,11 @@ export default function Items({
   return (
     <Layout>
       <Head>
-        <title>Sample EC | {itemData.title}</title>
+        <title>Sample EC | {itemData.name}</title>
       </Head>
       <ImageModal mainImage={itemData.id} />
       <article>
-        <h1 className={utilStyles.headingXl}>{itemData.title}</h1>
+        <h1 className={utilStyles.headingXl}>{itemData.name}</h1>
         <small className={utilStyles.lightText}>
           <CleanDate dateString={itemData.date} />
         </small>
