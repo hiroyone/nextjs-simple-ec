@@ -33,6 +33,7 @@ export default function ImageModal({
         width={600}
         height={400}
         onClick={openModal}
+        priority={true} // Above the fold image should be prefetched
       />
 
       <Modal
@@ -47,6 +48,7 @@ export default function ImageModal({
             src={`/images/${mainImage}.jpg`}
             alt="Top Image"
             layout="fill"
+            priority={false} // Above the fold image should be prefetched
           />
           <figcaption
             className={`${utilStyles.headingMd} ${utilStyles.colorWhiteSmoke} ${modalStyles.modalBelowLeft}`}
