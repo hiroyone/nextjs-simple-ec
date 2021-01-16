@@ -18,7 +18,7 @@ export default function ItemList({
           <li className={utilStyles.listItem} key={item.id}>
             <Link href={`/items/${item.id}`}>
               <a>
-                <Image
+                <img
                   src={`/images/${item.id}.jpg`}
                   alt={item.name}
                   className="itemImage"
