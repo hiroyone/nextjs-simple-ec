@@ -39,7 +39,7 @@ const LayoutHeader = (): JSX.Element => (
   <header className={styles.header}>
     <Link href="/">
       <a>
-        <Image
+        <img
           src="/images/logoEC.png"
           className={`${styles.headerHomeImage}`}
           width={50}
