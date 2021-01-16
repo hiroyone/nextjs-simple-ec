@@ -26,14 +26,14 @@ export default function ImageModal({
   }
   return (
     <>
-      <img
+      <Image
         src={`/images/${mainImage}.jpg`}
         alt="Top Image"
         className={utilStyles.clickableImage}
         width={600}
         height={400}
         onClick={openModal}
-        // priority={true} // Above the fold image should be prefetched
+        priority={true} // Above the fold image should be prefetched
       />
 
       <Modal
@@ -44,13 +44,11 @@ export default function ImageModal({
         overlayClassName={modalStyles.overlay}
       >
         <figure>
-          <img
+          <Image
             src={`/images/${mainImage}.jpg`}
             alt="Top Image"
-            width={900}
-            height={600}
-            // layout="fill"
-            // priority={false} // Above the fold image should be prefetched
+            layout="fill"
+            priority={false} // Above the fold image should be prefetched
           />
           <figcaption
             className={`${utilStyles.headingMd} ${utilStyles.colorWhiteSmoke} ${modalStyles.modalBelowLeft}`}
