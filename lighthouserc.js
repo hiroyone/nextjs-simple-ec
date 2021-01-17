@@ -8,7 +8,7 @@ module.exports = {
     upload: {
       target: "lhci",
       serverBaseUrl: "http://localhost:9001/",
-      token: "48f57bd2-caef-4d2e-b2b9-0aad65fb09a8", // could also use LHCI_TOKEN variable instead
+      token: "03d0427b-c131-4aa6-a04f-e2e58008412f", // could also use LHCI_TOKEN variable instead
     },
   },
 };
