@@ -1,5 +1,3 @@
-# Pull Request Template
-
 ## Description
 
 Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
@@ -23,10 +21,11 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 - [ ] Test B
 
 **Test Configuration**:
-* Firmware version:
-* Hardware:
-* Toolchain:
-* SDK:
+
+- Firmware version:
+- Hardware:
+- Toolchain:
+- SDK:
 
 ## Checklist:
 
